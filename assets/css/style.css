@@ -1,0 +1,24 @@
+:root {
+    --primary-color: #00aeff;
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: var(--primary-color);
+    margin: 0px;
+    padding: 0px;
+}
+
+.informacoes {
+    width: 600px;
+    height: 450px;
+    background: beige;
+}
+
+
+
