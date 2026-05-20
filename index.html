@@ -6,18 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 
 <body>
     <section class="informacoes">
-        <h1>Lista de Tarefas</h1>
+        <h1 class="titulo">Lista de Tarefas</h1>
+        <div class="search-bar">
+            <div class="row">
+                <input type="text" id="barra-pesquisa" placeholder="Pesquisar tarefas..."
+                autocomplete="off">
+                <button id="botao-pesquisa"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
         <p>
             <input type="text" class="input-nova-tarefa">
-            <button class="add-tarefa">Adicionar</button>
+            <button class="add-tarefa"><i class="fa-solid fa-plus"></i></button>
         </p>
         <ul class="tarefas"></ul>
     </section>
     <script src="./assets/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/f290c1a2af.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

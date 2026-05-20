@@ -1,24 +1,132 @@
 :root {
-    --primary-color: #00aeff;
+    --primary-color: #c1ebff;
+    --delete-color: #dc3545;
+    --delete-hover: #bd2130;
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; 
     outline: 0;
 }
 
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--primary-color);
     margin: 0px;
     padding: 0px;
 }
 
+.titulo {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 45px;
+}
+
 .informacoes {
     width: 600px;
-    height: 450px;
-    background: beige;
+    min-height: 600px; 
+    background: rgb(235, 235, 235); 
+    border-radius: 8px;
+    margin: 40px auto; 
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
+
+.search-bar {
+    width: 100%; 
+    background: #fff;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+
+.informacoes p {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.input-nova-tarefa {
+    flex: 1;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+button {
+    background-color: rgb(0, 139, 42);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #00520e;
+}
+
+
+ul.tarefas {
+    list-style: none; 
+    padding: 0;
+    margin-top: 30px;
+}
+
+ul.tarefas li {
+    background: #fff;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 16px;
+    color: #333;
+    justify-content: flex-start; 
+}
+
+button.apagar {
+    display: inline-flex; 
+    background-color: var(--delete-color);
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-left: auto !important; 
+}
+
+button.apagar:hover {
+    background-color: var(--delete-hover);
+}
+
+#botao-pesquisa {
+    background-color: transparent; 
+    color: #333; 
+    padding: 15px; 
+}
+
+#botao-pesquisa:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+    color: #000; 
+}
+
+
 
 
 
