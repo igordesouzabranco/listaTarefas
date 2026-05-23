@@ -31,12 +31,24 @@ function criaApagar(li) {
     li.appendChild(botaoApagar);
 }
 
+function criaRiscar(li) {
+    const botaoRiscar = document.createElement('button');
+    botaoRiscar.innerHTML = '<i class="fa-solid fa-strikethrough"></i>';
+    botaoRiscar.setAttribute('class', 'riscar');
+    botaoRiscar.setAttribute('title', 'Riscar tarefa');
+    
+    botaoRiscar.style.marginLeft = '12px'; 
+    
+    li.appendChild(botaoRiscar);
+}
+
 function criaTarefa(textInput) {
     const li = criaLi();
     li.innerHTML += textInput;
     listaTarefas.appendChild(li);
     limpaInput();
     criaApagar(li);
+    criaRiscar(li);
     salvarTarefas();
 }
 
@@ -48,11 +60,11 @@ btnAddTarefa.addEventListener('click', function() {
 document.addEventListener('click', function(e) {
     const el = e.target;
 
-    if (el.classList.contains('apagar')) {
-        el.parentElement.remove();
+    if (el.closest('.apagar')) {
+        el.closest('li').remove();
         salvarTarefas();
-    } else if (el.parentElement.classList.contains('apagar')) {
-        el.parentElement.parentElement.remove();
+    } else if (el.closest('.riscar')) {
+        el.closest('li').classList.toggle('riscada');
         salvarTarefas();
     }
 })

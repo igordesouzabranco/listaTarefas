@@ -47,6 +47,10 @@ body {
     padding: 5px 10px;
 }
 
+.riscada {
+    text-decoration: line-through;
+    color: #999;
+}
 
 .informacoes p {
     display: flex;
@@ -113,6 +117,20 @@ button.apagar {
 
 button.apagar:hover {
     background-color: var(--delete-hover);
+}
+
+button.riscar {
+    background-color: var(--delete-color);
+    padding: 8px 12px;
+    font-size: 14px; 
+}
+
+button.riscar:hover {
+    background-color: var(--delete-hover);
+}
+
+button i {
+    pointer-events: none;
 }
 
 #botao-pesquisa {
