@@ -12,26 +12,25 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--primary-color);
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .titulo {
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: #000;
     font-size: 45px;
 }
 
 .informacoes {
     width: 600px;
     min-height: 600px; 
-    background: rgb(235, 235, 235); 
+    background: #ebebeb; 
     border-radius: 8px;
     margin: 40px auto; 
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-
 
 .search-bar {
     width: 100%; 
@@ -58,22 +57,21 @@ body {
     margin-top: 20px;
 }
 
-.input-nova-tarefa {
+.input-nova-tarefa,
+input[type="text"] {
     flex: 1;
 }
 
 input[type="text"] {
-    flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
 }
 
-
 button {
-    background-color: rgb(0, 139, 42);
-    color: rgb(255, 255, 255);
+    background-color: #008b2a;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -86,7 +84,6 @@ button {
 button:hover {
     background-color: #00520e;
 }
-
 
 ul.tarefas {
     list-style: none; 
@@ -107,26 +104,21 @@ ul.tarefas li {
     justify-content: flex-start; 
 }
 
-button.apagar {
-    display: inline-flex; 
-    background-color: var(--delete-color);
-    padding: 8px 12px;
-    font-size: 14px;
-    margin-left: auto !important; 
-}
-
-button.apagar:hover {
-    background-color: var(--delete-hover);
-}
-
+button.apagar,
 button.riscar {
     background-color: var(--delete-color);
     padding: 8px 12px;
     font-size: 14px; 
 }
 
+button.apagar:hover,
 button.riscar:hover {
     background-color: var(--delete-hover);
+}
+
+button.apagar {
+    display: inline-flex; 
+    margin-left: auto !important; 
 }
 
 button i {
@@ -143,8 +135,3 @@ button i {
     background-color: rgba(0, 0, 0, 0.05); 
     color: #000; 
 }
-
-
-
-
-
