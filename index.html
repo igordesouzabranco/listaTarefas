@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cloudflare.com">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Tarefas</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    </head>
 
 <body>
     <section class="informacoes">
         <h1 class="titulo">Lista de Tarefas</h1>
+        <div class="theme-selector">
+            <label for="theme-select">Tema:</label>
+            <select id="theme-select">
+                <option value="light-pink">Rosa Claro</option>
+                <option value="github">GitHub</option>
+                <option value="dark-blue">Azul Escuro</option>
+            </select>
+        </div>
         <div class="search-bar">
             <div class="row">
                 <input type="text" id="barra-pesquisa" placeholder="Pesquisar tarefas..."
