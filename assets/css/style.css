@@ -1,45 +1,50 @@
 :root {
-    --primary-color: #c1ebff;
-    --delete-color: #dc3545;
-    --delete-hover: #bd2130;
-    --background-color: #ebebeb;
-    --text-color: #000;
-    --input-bg: #fff;
-    --input-border: #ccc;
-    --button-bg: #008b2a;
-    --button-hover: #00520e;
-    --task-bg: #fff;
-    --task-color: #333;
-    --task-shadow: rgba(0,0,0,0.05);
-    --riscada-color: #ff0000;
+    --primary-color: #6366f1;
+    --delete-color: #ef4444;
+    --delete-hover: #dc2626;
+    --edit-color: #f59e0b;
+    --edit-hover: #d97706;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --input-bg: #ffffff;
+    --input-border: #e2e8f0;
+    --input-focus: #3b82f6;
+    --button-bg: #6366f1;
+    --button-hover: #4f46e5;
+    --task-bg: #ffffff;
+    --task-color: #334155;
+    --task-shadow: rgba(0,0,0,0.08);
+    --riscada-color: #ef4444;
+    --border-radius: 8px;
+    --transition: all 0.2s ease;
 }
 
 body.light-pink {
-    --primary-color: #ffe4e1;
-    --background-color: #ffdde9;
-    --text-color: #8b0000;
+    --primary-color: #f87171;
+    --background-color: #fecaca;
+    --text-color: #991b1b;
     --input-bg: #fff;
-    --input-border: #ffb6c1;
-    --button-bg: #ff69b4;
-    --button-hover: #ff1493;
+    --input-border: #fecaca;
+    --button-bg: #f87171;
+    --button-hover: #ef4444;
     --task-bg: #fff;
-    --task-color: #8b0000;
-    --task-shadow: rgba(139,0,0,0.1);
-    --riscada-color: #ff0000;
+    --task-color: #991b1b;
+    --task-shadow: rgba(153,27,27,0.1);
+    --riscada-color: #ef4444;
 }
 
 body.github {
-    --primary-color: #010409;
+    --primary-color: #8b5cf6;
     --background-color: #000000;
-    --text-color: #c9d1d9;
-    --input-bg: #21262d;
-    --input-border: #30363d;
-    --button-bg: #238636;
-    --button-hover: #035311;
-    --task-bg: #161b22;
-    --task-color: #c9d1d9;
-    --task-shadow: rgba(0,0,0,0.3);
-    --riscada-color: #ff0000;
+    --text-color: #f3f4f6;
+    --input-bg: #374151;
+    --input-border: #4b5563;
+    --button-bg: #5cbef6;
+    --button-hover: #3088c4;
+    --task-bg: #1f2937;
+    --task-color: #f3f4f6;
+    --task-shadow: rgba(0,0,0,0.4);
+    --riscada-color: #ef4444;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-style: normal;
 }
@@ -49,17 +54,17 @@ body.github .tarefas li {
 }
 
 body.dark-blue {
-    --primary-color: #0a1a2f;
-    --background-color: #112240;
-    --text-color: #e0e7ff;
-    --input-bg: #0d1b2a;
-    --input-border: #1e293b;
-    --button-bg: #1e40af;
-    --button-hover: #02205f;
-    --task-bg: #0f172a;
-    --task-color: #e0e7ff;
+    --primary-color: #3b82f6;
+    --background-color: #1e293b;
+    --text-color: #f8fafc;
+    --input-bg: #334155;
+    --input-border: #475569;
+    --button-bg: #3b82f6;
+    --button-hover: #2563eb;
+    --task-bg: #334155;
+    --task-color: #f8fafc;
     --task-shadow: rgba(0,0,0,0.4);
-    --riscada-color: #ff0000;
+    --riscada-color: #ef4444;
 }
 
 * {
@@ -68,17 +73,34 @@ body.dark-blue {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
 .titulo {
     text-align: center;
     color: var(--text-color);
     font-size: 45px;
+}
+
+body.github .titulo {
+    background-color: #000000;
+    color: #00d9ff;
+    font-family: 'Monaspace Neon', ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+    font-size: 28px;
+    padding: 12px 24px;
+    border: 1px solid #00d9ff;
+    margin: 20px auto 30px auto; 
+    display: block; 
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 5px rgba(0, 217, 255, 0.3), 0 0 10px rgba(0, 217, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+    max-width: 80%; 
 }
 
 .informacoes {
@@ -131,27 +153,77 @@ body.light-pink .informacoes {
 .input-nova-tarefa,
 input[type="text"] {
     flex: 1;
-    padding: 10px;
-    border: 1px solid var(--input-border);
-    border-radius: 5px;
+    padding: 12px 16px;
+    border: 2px solid var(--input-border);
+    border-radius: var(--border-radius);
     font-size: 16px;
     background-color: var(--input-bg);
     color: var(--text-color);
+    transition: var(--transition);
+    font-weight: 400;
+}
+
+.input-nova-tarefa:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.input-nova-tarefa::placeholder,
+input[type="text"]::placeholder {
+    color: #94a3b8;
+    opacity: 0.7;
 }
 
 button {
     background-color: var(--button-bg);
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: var(--transition);
+    font-weight: 500;
+    min-width: 40px;
+    height: 40px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus {
+    outline: 2px solid var(--input-focus);
+    outline-offset: 2px;
+}
+
+button.apagar,
+button.riscar,
+button.editar {
+    background-color: var(--button-bg);
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-button:hover {
+button.apagar:hover,
+button.riscar:hover,
+button.editar:hover {
     background-color: var(--button-hover);
 }
 
@@ -172,18 +244,6 @@ ul.tarefas li {
     font-size: 16px;
     color: var(--task-color);
     justify-content: flex-start; 
-}
-
-button.apagar,
-button.riscar {
-    background-color: var(--delete-color);
-    padding: 8px 12px;
-    font-size: 14px; 
-}
-
-button.apagar:hover,
-button.riscar:hover {
-    background-color: var(--delete-hover);
 }
 
 button.apagar {

@@ -45,14 +45,32 @@ function criaRiscar(li) {
     li.appendChild(botaoRiscar);
 }
 
-function criaTarefa(textInput) {
+function criaEditar(li) {
+    const botaoEditar = document.createElement('button');
+    botaoEditar.innerHTML = '<i class="fa-solid fa-pen"></i>';
+    botaoEditar.setAttribute('class', 'editar');
+    botaoEditar.setAttribute('title', 'Editar tarefa');
+    
+    botaoEditar.style.marginLeft = '8px'; 
+    
+    li.appendChild(botaoEditar);
+}
+
+function criaTarefa(textInput, completada = false) {
     const li = criaLi();
     li.innerHTML += textInput;
     listaTarefas.appendChild(li);
     limpaInput();
     criaApagar(li);
     criaRiscar(li);
+    criaEditar(li);
+    
+    if (completada) {
+        li.classList.add('riscada');
+    }
+    
     salvarTarefas();
+    return li;
 }
 
 btnAddTarefa.addEventListener('click', function() {
@@ -69,6 +87,56 @@ document.addEventListener('click', function(e) {
     } else if (el.closest('.riscar')) {
         el.closest('li').classList.toggle('riscada');
         salvarTarefas();
+    } else if (el.closest('.editar')) {
+        const li = el.closest('li');
+        const span = document.createElement('span');
+        span.contentEditable = 'true';
+        span.style.borderBottom = '1px dashed #ccc';
+        span.style.padding = '0 2px';
+        
+        let taskText = li.innerText;
+
+        taskText = taskText.replace(/^.*?[\s]*/, '').trim();
+        
+        span.textContent = taskText;
+        
+        li.innerHTML = '';
+        li.appendChild(span);
+        
+        criaApagar(li);
+        criaRiscar(li);
+        criaEditar(li);
+        
+        span.focus();
+        
+        const salvarEdicao = function() {
+            const novoTexto = span.textContent.trim();
+            if (novoTexto) {
+
+                li.innerHTML = '';
+                li.innerHTML += '<i class="fa-solid fa-angles-right" style="margin-right: 8px;"></i> ';
+                li.innerHTML += novoTexto;
+            
+                criaApagar(li);
+                criaRiscar(li);
+                criaEditar(li);
+                
+                salvarTarefas();
+            } else {
+                li.remove();
+                salvarTarefas();
+            }
+        };
+        
+        span.addEventListener('keypress', function(e) {
+            if (e.keyCode === 13) { // Enter
+                salvarEdicao();
+            }
+        });
+        
+        span.addEventListener('blur', function() {
+            salvarEdicao();
+        });
     }
 })
 
@@ -78,8 +146,9 @@ function salvarTarefas() {
 
     for (let task of liTarefas) {
         let taskTexto = task.innerText;
-        taskTexto = taskTexto.trim();
-        listaSalvarTarefas.push(taskTexto);
+        taskTexto = taskTexto.replace(/^.*?[\s]*/, '').trim();
+        const completada = task.classList.contains('riscada');
+        listaSalvarTarefas.push({texto: taskTexto, completada: completada});
     }
 
     const tarefasJSON = JSON.stringify(listaSalvarTarefas);
@@ -91,9 +160,12 @@ function addTarefasSalvas() {
     if (!tarefas) return; 
     
     const listaDeTarefasSalvas = JSON.parse(tarefas);
-
-    for (let tarefa of listaDeTarefasSalvas) {
-        criaTarefa(tarefa);
+ 
+    for (let tarefaObj of listaDeTarefasSalvas) {
+        const li = criaTarefa(tarefaObj.texto);
+        if (tarefaObj.completada) {
+            li.classList.add('riscada');
+        }
     }
 }
 
