@@ -3,7 +3,8 @@ const btnAddTarefa = document.querySelector('.add-tarefa');
 const inputTarefa = document.querySelector('.input-nova-tarefa');
 const barraPesquisa = document.getElementById('barra-pesquisa');
 const botaoPesquisa = document.getElementById('botao-pesquisa');
-const themeSelect = document.getElementById('theme-select');
+const themeButton = document.getElementById('theme-button');
+const themePopup = document.getElementById('theme-popup');
 
 function criaLi() {
     const li = document.createElement('li');
@@ -192,16 +193,38 @@ barraPesquisa.addEventListener('keypress', function(e) {
 
 barraPesquisa.addEventListener('input', filtrarTarefas);
 
-themeSelect.addEventListener('change', function() {
-    document.body.className = this.value;
-    localStorage.setItem('selectedTheme', this.value);
+function applyTheme(theme) {
+    document.body.className = theme;
+    localStorage.setItem('selectedTheme', theme);
+}
+
+themeButton.addEventListener('click', function(e) {
+    e.stopPropagation(); 
+    themePopup.classList.toggle('show');
+});
+
+themePopup.addEventListener('click', function(e) {
+    if (e.target.classList.contains('theme-option')) {
+        const theme = e.target.getAttribute('data-theme');
+        applyTheme(theme);
+        themePopup.classList.remove('show');
+    }
+});
+
+document.addEventListener('click', function(e) {
+    if (!themePopup.contains(e.target) && !themeButton.contains(e.target)) {
+        themePopup.classList.remove('show');
+    }
+});
+
+themePopup.addEventListener('click', function(e) {
+    e.stopPropagation();
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('selectedTheme');
     if (savedTheme) {
-        document.body.className = savedTheme;
-        themeSelect.value = savedTheme;
+        applyTheme(savedTheme);
     }
 });
 

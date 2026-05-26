@@ -265,3 +265,83 @@ button i {
     background-color: rgba(255, 255, 255, 0.1); 
     color: var(--text-color); 
 }
+
+/* Theme selector styles */
+.theme-selector {
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.theme-button {
+    background-color: var(--button-bg);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: var(--transition);
+    width: 50px;
+    height: 50px;
+    position: relative; 
+    z-index: 2;
+}
+
+.theme-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.theme-button:active {
+    transform: translateY(0);
+}
+
+.theme-button:focus {
+    outline: 2px solid var(--input-focus);
+    outline-offset: 2px;
+}
+
+.theme-popup {
+    position: absolute;
+    top: 50%; 
+    left: 100%; 
+    margin-left: 10px; 
+    transform: translateY(-50%); 
+    background: var(--task-bg);
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px var(--task-shadow);
+    padding: 10px;
+    display: none;
+    z-index: 1000;
+    min-width: 120px;
+}
+
+.theme-popup.show {
+    display: block;
+}
+
+.theme-option {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin: 5px 0;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--task-color);
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.theme-option:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}

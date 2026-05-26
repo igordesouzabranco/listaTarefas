@@ -11,29 +11,31 @@
     </head>
 
 <body>
-    <section class="informacoes">
-        <h1 class="titulo">Lista de Tarefas</h1>
-        <div class="theme-selector">
-            <label for="theme-select">Tema:</label>
-            <select id="theme-select">
-                <option value="light-pink">Rosa Claro</option>
-                <option value="github">GitHub</option>
-                <option value="dark-blue">Azul Escuro</option>
-            </select>
+<section class="informacoes">
+    <h1 class="titulo">Lista de Tarefas</h1>
+    <div class="search-bar">
+        <div class="row">
+            <input type="text" id="barra-pesquisa" placeholder="Pesquisar tarefas..."
+            autocomplete="off">
+            <button id="botao-pesquisa"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-        <div class="search-bar">
-            <div class="row">
-                <input type="text" id="barra-pesquisa" placeholder="Pesquisar tarefas..."
-                autocomplete="off">
-                <button id="botao-pesquisa"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-        </div>
-        <p>
-            <input type="text" class="input-nova-tarefa" placeholder="Adicionar nova tarefa..." autocomplete="off">
-            <button class="add-tarefa"><i class="fa-solid fa-plus"></i></button>
-        </p>
-        <ul class="tarefas"></ul>
-    </section>
+    </div>
+    <p>
+        <input type="text" class="input-nova-tarefa" placeholder="Adicionar nova tarefa..." autocomplete="off">
+        <button class="add-tarefa"><i class="fa-solid fa-plus"></i></button>
+    </p>
+    <ul class="tarefas"></ul>
+<div class="theme-selector">
+    <button id="theme-button" class="theme-button">
+        <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+    <div id="theme-popup" class="theme-popup">
+        <button class="theme-option" data-theme="light-pink">Rosa Claro</button>
+        <button class="theme-option" data-theme="github">GitHub</button>
+        <button class="theme-option" data-theme="dark-blue">Azul Escuro</button>
+    </div>
+</div>
+</section>
     <script src="./assets/js/main.js"></script>
     <script src="https://kit.fontawesome.com/f290c1a2af.js" crossorigin="anonymous"></script>
 </body>
