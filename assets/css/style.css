@@ -85,7 +85,42 @@ body {
     text-align: center;
     color: var(--text-color);
     font-size: 45px;
+    justify-self: center;
+    justify-content: center;
 }
+
+
+body.light-pink .titulo,
+body.dark-blue .titulo {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 25px;
+    display: inline-block;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+body.light-pink .titulo::before,
+body.dark-blue .titulo::before {
+    content: '';
+    justify-content: center;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+
 
 body.github .titulo {
     background-color: #000000;
